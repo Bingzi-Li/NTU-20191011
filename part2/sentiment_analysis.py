@@ -29,7 +29,6 @@ for bid, bid_df in review_df_groupby_bid:
     review_bid_dict[bid]=bid_df.reset_index()
 
 
-'First part: Select adjectives and find their probability in regard to their ratings'
 data_length = len(review_df)
 output = []
 for i in range(0, data_length):
