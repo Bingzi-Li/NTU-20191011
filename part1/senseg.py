@@ -6,6 +6,7 @@ import ndjson
 # current retrievepath = '../data/reviewSelected100.json'
 # current get_segmented_reviews savepath and plot retrievepath = '../data/reviewSegmented100.json'
 
+
 def get_segmented_reviews(retrievepath, savepath):
     '''This method takes in rtrieve path to get the data source json file and dump the data into other file in save path, after doing sentence segmentation on reviews.'''
     
@@ -32,6 +33,7 @@ def get_segmented_reviews(retrievepath, savepath):
 
 
 def plot(retrievepath, rating):
+
     '''This method shows the distribution of the data for particular rating star (i.e., 1 to 5). In each plot, the x-axis is the length of a review in number of sentences, and the y-axis is the number of reviews of such length. '''
     
     # initialising list of dictionary used to record [{length:num of reviews}]
@@ -67,5 +69,5 @@ def plot(retrievepath, rating):
     plt.ylabel('review length(in num of sentences)')
     plt.title('Segmentation Analysis of Rating '+str(rating))
     plt.show()
-    
+
         
