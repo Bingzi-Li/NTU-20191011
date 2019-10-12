@@ -58,8 +58,6 @@ def plot(retrievepath, rating):
     # list returned by .keys() method is not sorted
     groups = sorted([int(key) for key in plot_data.keys()])
     values = [plot_data[str(i)] for i in groups]
-    print(groups)
-    print(values)
     
     # chart formatting 
     y_pos = np.arange(len(groups))
@@ -69,6 +67,5 @@ def plot(retrievepath, rating):
     plt.ylabel('review length(in num of sentences)')
     plt.title('Segmentation Analysis of Rating '+str(rating))
     plt.show()
-        
-plot('../data/reviewSegmented100.json',1)   
+    
         
