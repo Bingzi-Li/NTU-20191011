@@ -68,8 +68,8 @@ def plot_frequency_for_num_of_tokens(reviews_without_stem, reviews_with_stem):
 def plot_frequency_for_top_frequency_words(reviews_without_stem, reviews_with_stem):
     stop_words = set(nltk.corpus.stopwords.words('english'))
     stop_words.update(['The', 'n\'t', 'I', '\'s', 'We', 'get', 'would', 'It', 'one', 'place', 'They', 'go', 'This',
-                       '\'ve', 'got', 'us', 'my', 'could', 'also', 'even', 'also', '\'m', 'always', 'came', 'come',
-                       'made', 'said', 'going', 'know', 'If', 'day', '\'re', 'two', '2', 'say', 'take', 'way', 'still',
+                       '\'ve', 'got', 'us', 'my', 'could', 'also', 'even', '\'m', 'always', 'came', 'come', 'still',
+                       'made', 'said', 'going', 'know', 'If', 'day', '\'re', 'two', '2', 'say', 'take', 'way',
                        'ever', 'give', 'told', 'eat', 'minutes', 'around', 'So', 'asked', 'see', 'There', 'since',
                        '\'ll', 'took', 'She', 'He', 'You', 'next', 'But', '3', 'And', '5', 'When', 'every', 'A',
                        'something', 'tried', 'ca', 'Not', 'everything', '\'d', 'called', 'done', 'coming', 'things',
