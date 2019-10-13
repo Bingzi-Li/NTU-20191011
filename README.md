@@ -13,7 +13,7 @@ ndjson == 0.2.0
 
 matplotlab == 3.1.1
 
-The source code python scripts can be found in the directory data_analysis and application. The scripts are independent and the explanation of the scripts are given below:
+The source code python scripts can be found in the directory data_analysis, pair_summarizer, and application. The scripts are independent and the explanation of the scripts are given below:
 
 3. tokenization_stemming.py
 
