@@ -74,7 +74,7 @@ def plot_frequency_for_top_frequency_words(reviews_without_stem, reviews_with_st
                        '\'ll', 'took', 'She', 'He', 'You', 'next', 'But', '3', 'And', '5', 'When', 'every', 'A',
                        'something', 'tried', 'ca', 'Not', 'everything', '\'d', 'called', 'done', 'coming', 'things',
                        'wa', 'thi', 'veri', 'realli', 'becaus', 'alway', 'ha', 'ani', 'use', 'really' 'This',
-                       'My', 'make', 'went', 'ask', 'definit', 'definitely', 'work', 'thing', 'order', 'ordered'])
+                       'My', 'make', 'went', 'ask', 'definit', 'definitely', 'work', 'thing'])
 
     top_frequency_words_without_stem = {}
     top_frequency_words_with_stem = {}
