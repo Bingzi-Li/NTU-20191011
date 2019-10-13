@@ -44,11 +44,10 @@ countdict={}
 for k in range(0, 100):
     doc = nlp(arr[k])
 
-    # i loop traverse to find all the Noun, Adjective pairs
+    # i loop traverse to find all the Noun, Adjective pairs, with N in front of A
     for i, token in enumerate(doc):
         if token.pos_ not in ('NOUN', 'PROPN'):
             continue
-
         # j loop to update the dictionary, by adding unseen pairs and increment count of seen pairs
         for j in range(i + 1, len(doc)):
             if doc[j].pos_ == 'ADJ':
@@ -60,10 +59,10 @@ for k in range(0, 100):
                     countdict[key] = 1
                 break
 
+    # i loop traverse to find all the Noun, Adjective pairs, with A in front of N
     for i, token in enumerate(doc):
         if token.pos_ not in ('ADJ'):
             continue
-
         # j loop to update the dictionary, by adding unseen pairs and increment count of seen pairs
         for j in range(i + 1, len(doc)):
             if doc[j].pos_ == 'NOUN' or doc[j].pos_ == 'PROPN':
