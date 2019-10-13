@@ -14,4 +14,3 @@ The source code python scripts can be found in the directory : . The scripts are
 5. most_frequent_adjective.py
 
    ​	Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, “indicativeness”)) in respect to the stars the reviews has.
-

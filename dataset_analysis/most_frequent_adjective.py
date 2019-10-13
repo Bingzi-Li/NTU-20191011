@@ -9,7 +9,7 @@ import os.path
 from nltk import FreqDist
 
 'Get the path of the dataset'
-review_path = '../data/reviewTaggingAll100.json'
+review_path = '../output/reviewTagging100.json'
 os.path.exists(review_path)
 
 'Tokenize the texts and output the json file'
@@ -56,8 +56,3 @@ for stars in range(1, 6):
         output_indicativeness.append((adj, adj_fdist.freq(adj) * math.log2(adj_fdist.freq(adj)/data_fdist.freq(adj))))
     output_indicativeness.sort(key=lambda tup: tup[1], reverse=True)
     print(output_indicativeness[0:5])
-
-
-
-
-
