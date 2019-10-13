@@ -21,11 +21,11 @@ for bid, bid_df in review_df_groupby_bid:
 # Get the reviews text of certain business_id, stores in array
 review_bid_text = []
 for i in range(100):
-    review_bid_text.append(review_bid_dict['1Fpk8ibHhZYnCw8fnGny8w']['text'][i])
+    review_bid_text.append(review_bid_dict[review_bid_list[27]]['text'][i])
 
 arr = review_bid_text
 
-print(review_bid_text)
+#print(review_bid_text)
 
 #print(review_bid_list[27]) # 4 14 18 19 27
 
@@ -56,8 +56,22 @@ for k in range(0, 10):
                     countdict[key] = 1
                 break
 
+    for i, token in enumerate(doc):
+        if token.pos_ not in ('ADJ'):
+            continue
+
+        # j loop to update the dictionary, by adding unseen pairs and increment count of seen pairs
+        for j in range(i + 1, len(doc)):
+            if doc[j].pos_ == 'NOUN' or doc[j].pos_ == 'PROPN':
+                key = (str(doc[j]), str(token))
+                # print(countdict.keys())
+                if key in countdict.keys():
+                    countdict[key] = countdict[key]+1
+                else:
+                    countdict[key] = 1
+                break
+
 # print the (Noun, Adjective) with its count in a sorted order
 a1_sorted_keys = sorted(countdict, key=countdict.get, reverse=True)
 for r in a1_sorted_keys:
     print(r, countdict[r])
-
