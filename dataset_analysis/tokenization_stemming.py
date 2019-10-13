@@ -30,6 +30,7 @@ def save_data(data, path):
 def plot_frequency_for_num_of_tokens(reviews_without_stem, reviews_with_stem):
     token_count_without_stem = {}
     token_count_with_stem = {}
+    # count the number of reviews for each review length
     for i in range(len(reviews_without_stem)):
         num_of_tokens_without_stem = len(set(reviews_without_stem[i]))
         num_of_tokens_with_stem = len(set(reviews_with_stem[i]))
@@ -78,6 +79,7 @@ def plot_frequency_for_top_frequency_words(reviews_without_stem, reviews_with_st
 
     top_frequency_words_without_stem = {}
     top_frequency_words_with_stem = {}
+    # count the number of occurrence for each words
     for i in range(len(reviews_without_stem)):
         for token in reviews_without_stem[i]:
             if token not in stop_words and not re.match(r'^[_\W]+$', token):
@@ -92,6 +94,7 @@ def plot_frequency_for_top_frequency_words(reviews_without_stem, reviews_with_st
                 else:
                     top_frequency_words_with_stem[token] += 1
 
+    # select the top 20 frequent words
     top_frequency_words_with_stem = sorted(top_frequency_words_with_stem.items(), key=operator.itemgetter(1))
     top_frequency_words_without_stem = sorted(top_frequency_words_without_stem.items(), key=operator.itemgetter(1))
     top_frequency_words_with_stem = top_frequency_words_with_stem[len(top_frequency_words_with_stem) - 20
