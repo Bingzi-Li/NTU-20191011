@@ -13,7 +13,7 @@ ndjson == 0.2.0
 
 matplotlab == 3.1.1
 
-The source code python scripts can be found in the directory data_analysis and application. The scripts are independent and the explanation of the scripts are given below:
+The source code python scripts can be found in the directory data_analysis, pair_summarizer, and application. The scripts are independent and the explanation of the scripts are given below:
 
 1. sentence_segmentation.py
 ...The script contains two methods:
@@ -23,7 +23,8 @@ def get_segmented_reviews(retrievepath, savepath):
 def plot(retrievepath, rating):
 '''This method shows the distribution of the data for particular rating star (i.e., 1 to 5). In each plot, the x-axis is the length of a review in number of sentences, and the y-axis is the number of reviews of such length. '''
 ```
-
+3. tokenization_stemming.py
+   ​	Running the script will generate 4 png files, include 2 plots for number of reviews of the specific length against the length of the review in terms of tokens, and 2 histograms for top 20 frequent words.
 5. most_frequent_adjective.py
 
    ​	Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, “indicativeness”)) in respect to the stars the reviews has.
