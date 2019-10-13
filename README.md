@@ -24,3 +24,12 @@ The source code python scripts can be found in the directory data_analysis and a
 6. application: sentiment_analysis.py. 
 
 To scripts can be run in any IDE (preferably pycharm)
+
+The sample output are in the directory “output”, and their meanings are explained below:
+
+1. revireSegemented100
+2. reviewSentiment20
+3. reviewTagging100
+4. reviewTaggingRandom5
+5. reviewTaggingSelect5
+6. reviewTokenized100
