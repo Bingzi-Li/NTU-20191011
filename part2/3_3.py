@@ -25,11 +25,15 @@ for i in range(100):
 
 arr = review_bid_text
 
-#print(review_bid_text)
+# Print all the reviews for one business
+#for i in range(100):
+#    print(arr[i])
+#    print("/n")
 
+# Print the real business_id string
 #print(review_bid_list[27]) # 4 14 18 19 27
 
-# arr = ["The food is good", "Give me some good food", "The restaurant's food is very good", "The food in this restaurant is surprisingly good"]
+#arr = ["The food is good", "Give me some good food", "The restaurant's food is very good", "The food in this restaurant is surprisingly good"]
 
 nlp = spacy.load('en')
 
@@ -37,7 +41,7 @@ nlp = spacy.load('en')
 countdict={}
 
 # k loop traverse the array of reviews
-for k in range(0, 10):
+for k in range(0, 100):
     doc = nlp(arr[k])
 
     # i loop traverse to find all the Noun, Adjective pairs
