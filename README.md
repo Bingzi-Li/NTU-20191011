@@ -1,4 +1,4 @@
-# NLP-comments
+# NTU-20191011 (NLP Analysis Project of Online Business Reviews)
 Third party libraries (install via python pip):
 
 nltk ==3.4.5
