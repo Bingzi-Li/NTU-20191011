@@ -13,15 +13,23 @@ ndjson == 0.2.0
 
 matplotlab == 3.1.1
 
+flair == 0.4.3
+
 The source code python scripts can be found in the directory data_analysis and application. The scripts are independent and the explanation of the scripts are given below:
 
 
 
+​			
+
 5. most_frequent_adjective.py
 
-   ​	Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, “indicativeness”)) in respect to the stars the reviews has.
+   Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, “indicativeness”)) in respect to the stars the reviews has.
 
-6. application: sentiment_analysis.py. 
+6. <Noun-Adjective> Summarizer: noun_adjective.py
+
+   Running this script will output the <Noun-Adjective> pairs extracted from reviews of 5 randomly selected business, 100 reviews each. Each pair has a count to denote the frequency. 
+
+7. application: sentiment_analysis.py. 
 
 To scripts can be run in any IDE (preferably pycharm)
 
