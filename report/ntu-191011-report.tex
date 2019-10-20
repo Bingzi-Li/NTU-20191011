@@ -51,7 +51,7 @@ and pplication
 
 
 \begin{abstract}
-This is the report for CZ4045 Natural Language Processing Assignment. The assignment requires to perform exercises of several Natural Language Processing techniques and develop applications based on Natural Language Processing concepts with restaurant reviews. This report composes of three sections: Data Analysis, which includes Writing Style, Sentence Segmentation, Tokenization, Stemming, POS Tagging, and Most Frequent Adjectives; Noun-Adjective Pair Summarizer; and Application of Sentiment Analysis.
+This is the report for CZ4045 Natural Language Processing Assignment. The assignment requires to perform exercises of several Natural Language Processing techniques and develop applications based on Natural Language Processing concepts using restaurant reviews. This report composes of three sections: Data Analysis, which includes Writing Style, Sentence Segmentation, Tokenization, Stemming, POS Tagging, and Most Frequent Adjectives; Noun-Adjective Pair Summarizer; and Application of Sentiment Analysis.
 \end{abstract}
 
 \begin{CCSXML}
@@ -76,7 +76,7 @@ This is the report for CZ4045 Natural Language Processing Assignment. The assign
 
 The writing style observed in restaurant reviews, the informal or causal writing style, are compared with new paper articles, the formal writing style. 
 
-\subsubsection{Reviews} Following are some example reviews extracted from the data. Noted that reviews are in a relatively causal writing style, where some proper nouns are not capitalized, e.g. "boba", several grammar errors are found, e.g. sentence "will smell like BBQ grill after" has not subject, numbers of informal words are used, e.g. ahem ahem, and some recombination of punctuations are used to express feelings, e.g. :)
+\subsubsection{Reviews} Following are some example reviews extracted from the data. Note that reviews are in a relatively causal writing style, where some proper nouns are not capitalized, e.g. "boba", several grammar errors are found, e.g. sentence "will smell like BBQ grill after" has not subject, numbers of informal words are used, e.g. ahem ahem, and some recombination of punctuations are used to express feelings, e.g. :)
 
 \begin{itemize}
 \item{Example 1}:"By far the most affordable sushi place on the west side :) I love their Hawaii Roll!! The slivers of almond get me every time!! I also love their bento special. If you're not particularly hungry, don't get it! It's a lot of food.  You can get a lot of food for under \$10.  Definitely a place to try :) ahem ahem walk over to the donut shop next door and have a boba for dessert. Just sayin!!"
@@ -153,10 +153,10 @@ for r in reviews:
 \item{Example 5 (33 sentences)}: ["I went to Mayworth with a neighbor and I truly enjoyed myself.", "I remember visiting this establishment when it was Center Street Tavern ( probably said the name wrong) years ago.", "Nevertheless, I truly enjoyed Mayworth.", "From the time we walked in until the time we left,  Dana took care of us.", "Her hospitality was outstanding.", "The pub is very inviting and cozy.", "I really wanted to stay longer, but I had things to do.", "I order the Jamaican jerk wings entree with a side of sweet potato waffle fries.", "The Jamaican Jerk was not to my liking.", "I felt it wasn't spicy or seasoned at all.", "However, the fries were so delicious.", "Dana suggested mayo with it, and I said no thanks, but do you have something else?", "She had me to try the chipotle sauce and man was it good.", "Afterwards, Dana asked me about my wings.", "I had to be honest, I just told her I didn't like them at all.", "She immediately said she would get me another flavor wing if I wanted.", "I said yes, and requested the  hot wings.", "When the owner found out that I wasn't satisfied he immediately came over to our table to talk with me.", "Again, I told him about the wings.", "He assured me that he would take care of me.", "The wings came out and boy were they good!", "I really enjoyed them.", "The owner comes back over and asked if I was pleased with the wings and I said yes and thanked him for taking care of me.", "This owner went above and beyond what most owners would do.", "I never got a bill so I had to asked Dana for it.", "To my surprise there was no billed because the owner took care of it.", "Most customer would say thank you right off, but not me!", "I wanted to fuss with the waitress about the owner taking care of my bill!", "He didn't have to do it, but he did and for that courtesy I'm so grateful.", "He will have my business from now on.", "This is the kind of establishment you want to embark on.", "You know you're going to be cared for here.", "Thank you for the love shown."]
 \end{itemize}
 
-Example 1 gives a typical case where Punkt Sentence Tokenizer fails. While it should have segmented the text into multiple sentences, it is mislead by the misuse of punctuation, ".." as the end of sentence, no space after "." and starting a sentence without capitalization and considers the text as one single sentence. Example 3 gives another case where informal expression, in this case "!!" as the sentence boundary. confuses the tokenizer. Punkt consider "!!" to be two sentences rather than one unit of punctuation. Example 2, 4 and 5 are correctly segmented, mainly because these reviews, especially longer two reviews, tends to have better grammar in favor of the tokenizer.
+Example 1 gives a typical case where Punkt Sentence Tokenizer fails. While it should have segmented the text into multiple sentences, Punkt is mislead by the misuse of punctuation, ".." as the end of sentence, no space after "." and starting a sentence without capitalization, and Punkt considers the text as one single sentence. Example 3 gives another case where informal expression, in this case "!!" as the sentence boundary, confuses the tokenizer. Punkt consider "!!" to be two sentences rather than one unit of punctuation. Example 2, 4 and 5 are correctly segmented, mainly because these reviews, especially the longer two reviews, tends to have better grammar in favor of the tokenizer.
 
 \subsection{Tokenization and Stemming}
-The tokenization and stemming are performed on the restaurant reviews and the distributions of the number of tokens given by tokenization and stemming are shown in plots. In each plot, the x-axis is the length of a review in number of words and the y-axis is the number of reviews of such length. \ref{fig:token_stem_separate} shows the distribution after tokenization and \ref{fig:token_stem_combined} shows that after stemming.
+The tokenization and stemming are performed on the restaurant reviews and the distributions of the number of tokens given by tokenization and stemming are shown in plots. In each plot, the x-axis is the length of a review in number of words and the y-axis is the number of reviews of such length. Figure \ref{fig:token_stem_separate} shows the distribution after tokenization and Figure \ref{fig:token_stem_combined} shows that after stemming.
 
 \begin{figure}[ht]
   \centering
@@ -193,11 +193,6 @@ for r in reviews
 \subsubsection{Discussion} Following are some discussions on the tokenization and stemming shown.
 \begin{itemize}
 \item After stemming is applied, the maximum number of tokens in a review changes from 536 to 467, while the minimum number of tokens remains to be 1.
-\item Compared with the number of reviews of each length before stemming, the curve after stemming is generally more compact towards zero. Especially the number of tokens ranging from 50 to 80, the number of reviews of each length after stemming is larger than the one without stemming.
-\end{itemize}
-
-\begin{itemize}
-\item After stemming is applied, the maximum number of tokens in a review changes from 536 to 467, while the minimum number of tokens in a review remains to be 1.
 \item Compared with the number of reviews of each length before stemming, the curve after stemming is generally more compact towards zero. Especially the number of tokens ranging from 50 to 80, the number of reviews of each length after stemming is larger than the one without stemming.
 \end{itemize}
 
@@ -244,7 +239,7 @@ reviews['pos']=reviews['words'].apply(pos_tag)
 From the results above, it can be concluded that the results produced by the POS tagger is already fairly accurate. For example, some special words like Mississauga is correctly tagged as NNP, and punctuation such as ‘!', ‘,’, '...' are tagged differently.
 
 \subsection{Most Frequent Adjectives for Each Rating}
-To analyse the most frequent adjectives and the most indicative adjectives with regards to the rating level of the reviews, the tagged tokens of each review from previous section are used to find their frequencies. The adjectives from the reviews of each rating are firstly extracted. The number of times a certain adjective appeared in the list of tokens is then counted and the respective percentage of the word is calculated. The most frequent adjectives is afterwards listed. Sample pseudocode is given below:
+To analyse the most frequent adjectives and the most indicative adjectives with regards to the rating level of the reviews, the tagged tokens of each review from previous section are used to find their frequencies. The adjectives from the reviews of each rating are firstly extracted. The number of times a certain adjective appeared in the list of tokens is then counted and the respective percentage of the word is calculated. The most frequent adjectives is afterwards listed. Sample code is given below:
 
 \begin{verbatim}
 from nltk import FreqDist
@@ -266,7 +261,7 @@ Let \begin{math}P(w|Ri)\end{math} be the probability of observing word \begin{ma
 
 Following the formula, in addition to measuring the frequencies in respect to each rating, the frequencies of each adjective in the context of the entire data are also measured.
 
-\subsubsection{Result} The result of this section is given in Table:
+\subsubsection{Result} The result of this section is given in Table \ref{tab:adj1} and \ref{tab:adj2}:
 
 \begin{table}
   \caption{Adjectives and their frequency}
@@ -441,9 +436,9 @@ The business is a Mexican food restaurant. The comments do mention a lot about t
 \section{Application}
 This application aims to understand how reviewers like the restaurant by sentiment analysis over text. We begin with some pretrained sentiment analysis tools provided in various libraries.  
 
-\subsection{NLTK Vader Sentiment Analysis\cite{Vader}}
+\subsection{NLTK Vader Sentiment Analysis}
 
-Vader tool uses the Bag of Words approach, a dictionary of words assigned with sentiment value from -1 to 1 for degree of positive and negative, and a heuristics function for depending adverb phrase. 
+Vader tool\cite{Vader} uses the Bag of Words approach, a dictionary of words assigned with sentiment value from -1 to 1 for degree of positive and negative, and a heuristics function for depending adverb phrase. 
 
 For example, the negative adjective “dumb” gives the sentiment of -0.55, and the pharse “so dumb” adds the intensity and gives an overall -0.72. 
 
@@ -451,9 +446,9 @@ Another example, although the positive verb “like” raise the sentiment to 0.
 
 One disadvantage of this approach is that it could not estimate the intensity for unseen word and classify it as neutral by default.
 
-\subsection{Flair Sentiment Analysis\cite{Flair}}
+\subsection{Flair Sentiment Analysis}
 
-Flair’s sentiment classifier, developed by Zalando Research group, is based on a character-level Long Short-Term Memory (LSTM)\cite{LSTM} neural network.
+Flair’s sentiment classifier, developed by Zalando Research group\cite{Flair}, is based on a character-level Long Short-Term Memory (LSTM)\cite{LSTM} neural network.
 
 LSTM neural network has the feedback connections and can not only process single data point but also the entire sequences of data. Flair takes sequences of letters and words into account when evaluating the overall sentiment of the sentences.
 
@@ -465,6 +460,7 @@ Stanford NLP Parser applies the POS tagging to the input sentence and returns th
 
 Stanford NLP Parser has advantage over detecting negation expressions, such as “bad”, “really bad”, and“not good”, with typed dependencies. However, Some sophisticated process would be required to generalize word-level POS tagging dependencies to sentence-level or text-level sentiment. 
 
+\subsection{Application Development}
 The application is further developed  based on the two libraries evaluated, NLTK Vader and Flair. 
 
 First, sentiment analysis over the entire text, that is model evaluates the sentence-level relationship and then gives overall text sentiment, is experimented. It performs well over the text at the expense of long execution time, 2.54s for a 301-word which makes it unscalable to the large dataset.
