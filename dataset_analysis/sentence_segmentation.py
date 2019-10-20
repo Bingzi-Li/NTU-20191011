@@ -1,14 +1,13 @@
+import ndjson
+import numpy as np
+
 from nltk import sent_tokenize
 import matplotlib.pyplot as plt
-import numpy as np
-import ndjson
-
-# current retrievepath = '../data/reviewSelected100.json'
-# current get_segmented_reviews savepath and plot retrievepath = '../output/reviewSegmented100.json'
-
 
 def get_segmented_reviews(retrievepath, savepath):
-    '''This method takes in retrieve path to get the data source json file and dump the data into other file in save path, after doing sentence segmentation on reviews.'''
+    '''This method takes in retrieve path to get the data source json file
+    and dump the data into other file in save path, after doing sentence
+    segmentation on reviews.'''
 
     # open the json file and read the reviews in.
     # The file is actually ndjson(seperated by newlines not commas)
@@ -34,7 +33,10 @@ def get_segmented_reviews(retrievepath, savepath):
 
 def plot(retrievepath, rating):
 
-    '''This method shows the distribution of the data for particular rating star (i.e., 1 to 5). In each plot, the x-axis is the length of a review in number of sentences, and the y-axis is the number of reviews of such length. '''
+    '''This method shows the distribution of the data for particular rating
+    star (i.e., 1 to 5). In each plot, the x-axis is the length of a review in
+    number of sentences, and the y-axis is the number of reviews of such length.
+    '''
 
     # initialising list of dictionary used to record [{length:num of reviews}]
     plot_data = {}
@@ -65,7 +67,13 @@ def plot(retrievepath, rating):
     y_pos = np.arange(len(groups))
     # plot bar chart
     plt.bar(y_pos, values, align='center', alpha=0.5)
-    plt.xticks(y_pos, groups)
-    plt.ylabel('review length(in num of sentences)')
-    plt.title('Segmentation Analysis of Rating '+str(rating))
-    plt.show()
+    plt.xlabel('Number of Sentences')
+    plt.savefig("../figure/segmentation_"+str(rating)+"star")
+    plt.clf()
+
+
+plot("../output/reviewSegmented100.json",1)
+plot("../output/reviewSegmented100.json",2)
+plot("../output/reviewSegmented100.json",3)
+plot("../output/reviewSegmented100.json",4)
+plot("../output/reviewSegmented100.json",5)

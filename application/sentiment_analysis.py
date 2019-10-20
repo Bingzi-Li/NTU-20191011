@@ -5,7 +5,7 @@ import re
 import nltk
 import flair
 
-
+# count the number of words in each sentence
 def word_count(sentences):
   count = []
 
@@ -19,6 +19,7 @@ nltk.download('vader_lexicon')
 analyzer = nltk.sentiment.vader.SentimentIntensityAnalyzer()
 
 
+# define vader sentiment analysis tool
 def sentiment_vader(sentences):
   value = []
 
@@ -31,6 +32,7 @@ def sentiment_vader(sentences):
 classifier = flair.models.TextClassifier.load('en-sentiment')
 
 
+# define flair sentiment analysis tool
 def sentiment_flair(sentences):
     value = []
 
@@ -43,7 +45,7 @@ def sentiment_flair(sentences):
 
     return value
 
-
+# define the weighted score function for calculating weighted average
 def weighted_score(segmented):
     weighted_score = []
 
@@ -64,7 +66,7 @@ def weighted_score(segmented):
     return weighted_score
 
 
-
+# conclude if the expression is negative based on the weighted score
 def negex(weighted_score):
 
     if weighted_score<0:

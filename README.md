@@ -1,4 +1,7 @@
-# NTU-20191011 (NLP Analysis Project of Online Business Reviews)
+# NTU-20191011
+## NTU CZ4045 Natural Language Processing Assignment Report
+### Authors: Li Bingzi, Li Guanlong, Wu Ziang, Yong Hao & Zhang Yuehan
+
 Third party libraries (install via python pip):
 
 nltk ==3.4.5
@@ -17,36 +20,39 @@ flair == 0.4.3
 
 The source code python scripts can be found in the directory data_analysis, pair_summarizer, and application. The scripts are independent and the explanation of the scripts are given below:
 
-1. sentence_segmentation.py
-...The script contains two methods:
-```python
-def get_segmented_reviews(retrievepath, savepath):
-    '''This method takes in retrieve path to get the data source json file and dump the data into other file in save path, after doing sentence segmentation on reviews.'''
-def plot(retrievepath, rating):
-'''This method shows the distribution of the data for particular rating star (i.e., 1 to 5). In each plot, the x-axis is the length of a review in number of sentences, and the y-axis is the number of reviews of such length. '''
-```
-3. tokenization_stemming.py
-   ​	Running the script will generate 4 png files, include 2 plots for number of reviews of the specific length against the length of the review in terms of tokens, and 2 histograms for top 20 frequent words.
+1. data_analysis/sentence_segmentation.py
+    Running this script will first perform sentence segmentation on reviews with output being exported file and second plot the distribution of the data for particular rating star (i.e., 1 to 5).
 
-5. most_frequent_adjective.py
+2. data_analysis/tokenization_stemming.py
 
-   Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, “indicativeness”)) in respect to the stars the reviews has.
+    ​Running the script will generate 4 png files, include 2 plots for number of reviews of the specific length against the length of the review in terms of tokens, and 2 histograms for top 20 frequent words.
 
-6. <Noun-Adjective> Summarizer: noun_adjective.py
+3. data_analysis/pos_tagging.py
 
-   Running this script will output the <Noun-Adjective> pairs extracted from reviews of 5 randomly selected business, 100 reviews each. Each pair has a count to denote the frequency. 
+    Running this script will randomly select five reviews and perform POS tagging on the text.
 
-7. application: sentiment_analysis.py. 
+4. data_analysis/most_frequent_adjective.py
 
-To scripts can be run in any IDE (preferably pycharm)
+    Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, indicativeness)) in respect to the stars the reviews has.
 
-The sample output are in the directory “output”, and their meanings are explained below:
+5. pair_summarizer/noun_adjective.py
 
-1. revireSegemented100
-... This file is the result of running get_segmented_reviews(retrievepath, savepath) in sentence_segmentation.py.It replaces the text ...in original data file with a list if segmented sentences, and add another atribute sentence length.
+    Running this script will output the <Noun-Adjective> pairs extracted from reviews of 5 randomly selected business, 100 reviews each. Each pair has a count to denote the frequency.
 
-2. reviewSentiment20
-3. reviewTagging100
-4. reviewTaggingRandom5
-5. reviewTaggingSelect5
-6. reviewTokenized100
+6. application/sentiment_analysis.py.
+
+    Running this script will output the spreadsheet containing the sentiment analysis result of review text using both Vader and Flair.
+
+The sample output are in the directory output and are explained below:
+
+1. output/reviewSegmented100.json
+
+    This file is output from data_analysis/sentence_segmentation.py. It replaces the text of original data file with a list of segmented sentences, and add another attribute sentence length.
+
+2. output/reviewTagging5.json
+
+    This file is output from data_analysis/pos_tagging.py. It performs the POS tagging on tokens after tokenization and saves the result in a new column.
+
+3. output/reviewSentiment20.*
+
+    This file is output from application/sentiment_analysis.py. It contains the sentiment analysis result on each individual sentence, using both Vader and Flair tools, weighted score of positive and negative ranging from 1 to -1.
