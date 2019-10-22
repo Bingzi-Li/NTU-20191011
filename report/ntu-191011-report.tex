@@ -302,7 +302,7 @@ Following the formula, in addition to measuring the frequencies in respect to ea
   \label{tab:adj2}
   \begin{tabular}{lllll}
     \toprule
-    Star & Word & Frequency \\
+    Star & Word & Indicativeness \\
     \midrule
     1 & other & 0.1054\\ 
     & bad & 0.1021\\ 
@@ -441,7 +441,7 @@ Vader tool\cite{Vader} uses the Bag of Words approach, a dictionary of words ass
 
 For example, the negative adjective “dumb” gives the sentiment of -0.55, and the pharse “so dumb” adds the intensity and gives an overall -0.72. 
 
-Another example, although the positive verb “like” raise the sentiment to 0.36, heuristics function flips the sentiment of “do not like” because “like” in this case follows a negation. Vader’s heuristics function takes care of some subtle details in the sentence, such as the negation here.
+Another example, although the positive verb “like” raises the sentiment to 0.36, heuristics function flips the sentiment of “do not like” because “like” in this case follows a negation. Vader’s heuristics function takes care of some subtle details in the sentence, such as the negation here.
 
 One disadvantage of this approach is that it could not estimate the intensity for unseen word and classify it as neutral by default.
 
@@ -457,14 +457,14 @@ Similar to Vader, negations and adverb phrase as intensifier are handled. An adv
 
 Stanford NLP Parser applies the POS tagging to the input sentence and returns the dependency tree and typed dependencies tree. POS tagging focuses on the detailed relationships between words and phrases with high accuracy.
 
-Stanford NLP Parser has advantage over detecting negation expressions, such as “bad”, “really bad”, and“not good”, with typed dependencies. However, Some sophisticated process would be required to generalize word-level POS tagging dependencies to sentence-level or text-level sentiment. 
+Stanford NLP Parser has advantage over detecting negation expressions, such as “bad”, “really bad”, and“not good”, with typed dependencies. However, some sophisticated process would be required to generalize word-level POS tagging dependencies to sentence-level or text-level sentiment. 
 
 \subsection{Application Development}
 The application is further developed  based on the two libraries evaluated, NLTK Vader and Flair. 
 
 First, sentiment analysis over the entire text, that is model evaluates the sentence-level relationship and then gives overall text sentiment, is experimented. It performs well over the text at the expense of long execution time, 2.54s for a 301-word which makes it unscalable to the large dataset.
 
-Sentence-level sentiment analysis is in fact not necessary, because of the nature of the review text. It is commonly observed that review is composed of straightforward and logic-independent sentences. Besides, reviewers tend to spend more effort on things they care about most, i.e. write several long sentences to describe.
+Text-level sentiment analysis is in fact not necessary, because of the nature of the review text. It is commonly observed that review is composed of straightforward and logic-independent sentences. Besides, reviewers tend to spend more effort on things they care about most, i.e. write several long sentences to describe.
 
 This motivates us to the weighted-sentiment value. Review test is first segmented into sentences and record the word count for each sentence. Sentiment analysis tools, Vedar and Flair, give the sentiment values of the sentences. Sentiment value for overall text is then calculated from the sentiment values of the sentences weighted average by word counts.
 
