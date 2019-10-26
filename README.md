@@ -35,11 +35,15 @@ The source code python scripts can be found in the directory data_analysis, pair
 
     Running the script will output the most frequent adjectives (in the form of (word, frequency count)) and the most indicative adjectives (in the form of (word, indicativeness)) in respect to the stars the reviews has.
 
-5. pair_summarizer/noun_adjective.py
+5. pair_summarizer/pos_tagging.py
 
-    Running this script will output the <Noun-Adjective> pairs extracted from reviews of 5 randomly selected business, 100 reviews each. Each pair has a count to denote the frequency.
+    Running this script will output the noun-adjective pairs extracted, by simply combining the nouns and adjectives found in one sentence, from reviews of 5 randomly selected business, 100 reviews each. Each pair has a count to denote the frequency.
 
-6. application/sentiment_analysis.py.
+6. pair_summarizer/dependency_structure.py
+
+    Running this script will output the noun-adjective pairs extracted, based on the spaCy parser, which takes care of  dependencies, synonyms, and compounds.
+
+7. application/sentiment_analysis.py.
 
     Running this script will output the spreadsheet containing the sentiment analysis result of review text using both Vader and Flair.
 
