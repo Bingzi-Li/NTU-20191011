@@ -1,5 +1,5 @@
 # NTU-20191011
-## NTU CZ4045 Natural Language Processing Assignment Report
+## NTU CZ4045 Natural Language Processing Assignment
 ### Authors: Li Bingzi, Li Guanlong, Wu Ziang, Yong Hao & Zhang Yuehan
 
 Third party libraries (install via python pip):
